@@ -10,9 +10,12 @@ services:
       - NODE_ENV=development
       #if you’re using Windows, you may need to uncomment the next line - Sol from @Kobe E
       #- WATCHPACK_POLLING=true
-    volumes:
-      - .:/app
-      - /app/node_modules
-      - /app/.next
     ports:
       - 3000:3000
+    develop:
+      watch:
+        - path: ./src/app
+          action: sync
+          target: /app/src/app
+          ignore:
+            - node_modules/
