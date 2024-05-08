@@ -37,5 +37,5 @@ jobs:
         run: corepack enable pnpm && pnpm run build
       - name: Deploy to S3
         run: aws s3 sync ./out s3://${{ secrets.BUCKET_NAME }}
-      # - name: Create Cloudfront Invalidation
-      # run: aws cloudfront create-invalidation --distribution-id ${{ secrets.DISTRIBUTION_ID }} --paths "/*"
+      - name: Create Cloudfront Invalidation
+        run: aws cloudfront create-invalidation --distribution-id ${{ secrets.DISTRIBUTION_ID }} --paths "/*"
