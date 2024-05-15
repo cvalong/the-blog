@@ -1,9 +1,7 @@
-import Image from 'next/image';
-
 export default function Home() {
   return (
     <main className='bg-[#f3f0e8] dark:bg-[#18251D] flex flex-col justify-start md:grid md:grid-cols-[1fr_640px_1fr]'>
-      <article className='space-y-4 py-10 md:col-start-2'>
+      <article className='space-y-4 py-10 px-6 md:col-start-2'>
         <div className='max-w-prose mx-auto space-y-6'>
           <h1 className='text-2xl font-bold'>Christopher Long:</h1>
           <p>
