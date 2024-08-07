@@ -1,8 +1,8 @@
 export default function Home() {
   return (
     <main className='bg-[#f3f0e8] dark:bg-[#18251D] flex flex-col justify-start md:grid md:grid-cols-[1fr_640px_1fr]'>
-      <article className='space-y-4 py-10 px-6 md:col-start-2'>
-        <div className='max-w-prose mx-auto space-y-6'>
+      <div className='space-y-4 py-10 px-6 md:col-start-2'>
+        <section className='max-w-prose mx-auto space-y-6'>
           <h1 className='text-2xl font-bold'>Christopher Long:</h1>
           <p>
             <em>Constant Creation</em>. Building from front to back with
@@ -26,9 +26,9 @@ export default function Home() {
               Oncrux
             </a>
           </p>
-        </div>
+        </section>
 
-        <div className='max-w-prose mx-auto space-y-6'>
+        <section className='max-w-prose mx-auto space-y-6'>
           <h2 className='text-xl font-semibold'>What am I up to:</h2>
           <p>
             Just doing. Experience only comes from the creation, constantly
@@ -39,11 +39,11 @@ export default function Home() {
             0 to 1, or in my case couch to marathon. Climbing, Running, and
             Gamemaster.
           </p>
-        </div>
+        </section>
 
-        <div className='max-w-prose mx-auto space-y-6'>
+        <section className='max-w-prose mx-auto space-y-6'>
           <h2 className='text-xl font-semibold'>Lets Talk:</h2>
-          <p>
+          <address>
             Find me on github{' '}
             <a
               href='https://github.com/cvalong'
@@ -57,13 +57,13 @@ export default function Home() {
               chris.va.long@gmail.com
             </a>
             .
-          </p>
+          </address>
           <p className='text-sm opacity-50'>
             Built with Next.js and Tailwind CSS, deployed with AWS. Text is set
             in the Inter typeface.
           </p>
-        </div>
-      </article>
+        </section>
+      </div>
     </main>
   );
 }
