@@ -1,4 +1,5 @@
-import { getAllPosts, getPostBySlug } from '@/lib/api';
+import { getAllPosts, getPostBySlug } from '@/app/blog/utils';
+import { Metadata } from 'next';
 import { notFound } from 'next/navigation';
 
 export default function Post({ params }: Params) {

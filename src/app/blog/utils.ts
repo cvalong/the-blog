@@ -1,7 +1,7 @@
 import fs from 'fs';
 import { join } from 'path';
 import matter from 'gray-matter';
-import { Post } from '@/interfaces/post';
+import { Post } from '@/app/blog/interfaces/post';
 
 const postDirectory = join(process.cwd(), 'src', 'app', 'blog', 'posts');
 
