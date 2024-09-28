@@ -1,4 +1,4 @@
-import { Post } from '@/interfaces/post';
+import { Post } from './interfaces/post';
 import { getAllPosts } from '@/app/blog/utils';
 import Link from 'next/link';
 

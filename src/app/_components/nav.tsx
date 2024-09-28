@@ -1,4 +1,6 @@
+'use client';
 import Link from 'next/link';
+import { useState } from 'react';
 
 const navItems = {
   '/': {
@@ -7,20 +9,53 @@ const navItems = {
   '/blog': {
     title: 'Blog',
   },
+  '/contact': {
+    title: 'Contact',
+  },
 };
 
 export function Nav() {
+  const [isOpen, setOpen] = useState<'open' | 'closed'>('closed');
+
+  function handleClick() {
+    setOpen(isOpen === 'open' ? 'closed' : 'open');
+  }
   return (
-    <div className='lg:sticky lg:top-20'>
-      <nav className='' id='nav'>
-        <div className=''>
-          {Object.entries(navItems).map(([path, { title }]) => (
-            <Link key={path} href={path}>
-              {title}
-            </Link>
-          ))}
-        </div>
-      </nav>
-    </div>
+    <nav
+      className='flex justify-between items-center p-4 border border-red-600 sticky top-0 bg-gradient-to-b from-black from-60%'
+      id='nav'
+    >
+      <ul
+        className={[
+          isOpen === 'open' ? 'left-0' : '-left-full',
+          'fixed top-20 w-full flex flex-col md:flex-row text-center space-between items-center gap-4 bg-yellow-700 md:bg-black',
+        ].join(' ')}
+      >
+        {Object.entries(navItems).map(([path, { title }]) => (
+          <li key={path} className=' my-10 md:my-0 md:ml-1'>
+            <Link href={path}>{title}</Link>
+          </li>
+        ))}
+      </ul>
+      <BurgerMenu handleClick={handleClick} />
+    </nav>
+  );
+}
+
+function BurgerMenu({ handleClick }: { handleClick: () => void }) {
+  return (
+    <button
+      className='cursor-pointer md:cursor-none md:hidden'
+      onClick={handleClick}
+    >
+      {Array.from({ length: 3 }).map((_, i) => {
+        return (
+          <div
+            key={i}
+            className='h-1 w-6 my-1 bg-white transition-all ease-in-out'
+          ></div>
+        );
+      })}
+    </button>
   );
 }
