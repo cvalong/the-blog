@@ -1,6 +1,7 @@
 'use client';
 import Link from 'next/link';
 import { useState } from 'react';
+import { clsx } from '../utils';
 
 const navItems = {
   '/': {
@@ -20,16 +21,17 @@ export function Nav() {
   function handleClick() {
     setOpen(isOpen === 'open' ? 'closed' : 'open');
   }
+
   return (
     <nav
       className='flex justify-between items-center p-4 border border-red-600 sticky top-0 bg-gradient-to-b from-black from-60%'
       id='nav'
     >
       <ul
-        className={[
+        className={clsx(
           isOpen === 'open' ? 'left-0' : '-left-full',
-          'fixed top-20 w-full flex flex-col md:flex-row text-center space-between items-center gap-4 bg-yellow-700 md:bg-black',
-        ].join(' ')}
+          'fixed top-20 w-full flex flex-col md:flex-row text-center space-between items-center gap-4 bg-yellow-700 md:bg-black'
+        )}
       >
         {Object.entries(navItems).map(([path, { title }]) => (
           <li key={path} className=' my-10 md:my-0 md:ml-1'>
@@ -37,12 +39,12 @@ export function Nav() {
           </li>
         ))}
       </ul>
-      <BurgerMenu handleClick={handleClick} />
+      <BurgerButton handleClick={handleClick} />
     </nav>
   );
 }
 
-function BurgerMenu({ handleClick }: { handleClick: () => void }) {
+function BurgerButton({ handleClick }: { handleClick: () => void }) {
   return (
     <button
       className='cursor-pointer md:cursor-none md:hidden'
