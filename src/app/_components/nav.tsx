@@ -29,13 +29,15 @@ export function Nav() {
     >
       <ul
         className={clsx(
-          isOpen === 'open' ? 'left-0' : '-left-full',
-          'fixed top-20 w-full flex flex-col md:flex-row text-center space-between items-center gap-4 bg-yellow-700 md:bg-black'
+          isOpen === 'open' ? 'flex' : 'hidden',
+          'bg-[#18251D] dark:bg-[#f3f0e8] absolute top-[30vh] flex-col text-center space-between items-center gap-4'
         )}
       >
         {Object.entries(navItems).map(([path, { title }]) => (
-          <li key={path} className=' my-10 md:my-0 md:ml-1'>
-            <Link href={path}>{title}</Link>
+          <li key={path} className='my-10 md:my-0 md:ml-1'>
+            <Link href={path} onClick={handleClick}>
+              {title}
+            </Link>
           </li>
         ))}
       </ul>
