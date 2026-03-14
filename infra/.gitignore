@@ -1,0 +1,23 @@
+# OpenTofu / Terraform local state and cache
+.terraform/
+*.tfstate
+*.tfstate.backup
+*.tfvars
+*.tfvars.json
+
+# Saved plan files (binary, may contain sensitive values)
+*.tfplan
+tfplan
+
+# Crash log files
+crash.log
+crash.*.log
+
+# Override files (local experiments, never shared)
+override.tf
+override.tf.json
+*_override.tf
+*_override.tf.json
+
+# The lock file IS committed — provider version pinning
+# !.terraform.lock.hcl
